@@ -1,3 +1,4 @@
+import SiteHeader from '../components/SiteHeader.jsx'
 import { useState } from 'react'
 
 const profileOptions = [
@@ -48,14 +49,7 @@ export default function TjoLanding({ onHome, onBuildPlan }) {
 
   return (
     <div className="tjo-shell">
-      <header className="institutional-header tjo-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy"><strong>LANDSTUHL</strong><span>Regional Medical Center</span></span>
-        </button>
-        <p>Your path to LRMC</p>
-        <button className="institutional-tjo" onClick={onHome}>Exit pathway <span aria-hidden="true">×</span></button>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="tjo-hero section-pad">

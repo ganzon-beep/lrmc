@@ -1,3 +1,4 @@
+import SiteHeader from '../components/SiteHeader.jsx'
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 
 const Arrow = () => <span aria-hidden="true">↗</span>
@@ -5,36 +6,14 @@ const Arrow = () => <span aria-hidden="true">↗</span>
 export default function AboutLrmc({ onHome, onPlan }) {
   return (
     <div className="institutional-shell">
-      <header className="institutional-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>Regional Medical Center</span>
-          </span>
-        </button>
-        <nav aria-label="About LRMC sections">
-          <a href="#identity">Who we are</a>
-          <a href="#purpose">Mission</a>
-          <a href="#legacy">History</a>
-          <a href="#command">Leadership &amp; command</a>
-        </nav>
-        <button className="institutional-tjo" onClick={onPlan}>I have a TJO <span aria-hidden="true">→</span></button>
-      </header>
-
-      <nav className="institutional-subnav" aria-label="About LRMC mobile sections">
-        <a href="#identity">Who we are</a>
-        <a href="#purpose">Mission</a>
-        <a href="#legacy">History</a>
-        <a href="#command">Leadership &amp; command</a>
-      </nav>
+      <SiteHeader sectionLabel="About LRMC" sections={[{ href: '#identity', label: 'Who we are' }, { href: '#purpose', label: 'Mission' }, { href: '#legacy', label: 'History' }, { href: '#command', label: 'Leadership & command' }]} />
 
       <main>
         <section className="institutional-hero" id="identity">
           <img src={assetUrl('/pictures/2977236532-20120920-A-UR215-140.JPG')} alt="Aerial view of the Landstuhl Regional Medical Center campus" />
           <div className="institutional-hero__overlay" />
           <div className="institutional-hero__copy">
-            <p className="eyebrow">Who we are</p>
+            <p className="eyebrow">About LRMC / Our Mission</p>
             <h1>Forward stationed.<br /><span>Globally connected.</span></h1>
             <p>LRMC is a jointly staffed medical center positioned at the intersection of operational readiness, advanced care and enduring partnership.</p>
           </div>
@@ -60,6 +39,52 @@ export default function AboutLrmc({ onHome, onPlan }) {
               <cite>Official LRMC vision</cite>
             </blockquote>
             <a href="https://landstuhl.tricare.mil/About-Us/Mission-and-Vision" target="_blank" rel="noreferrer">Read the official mission and vision <Arrow /></a>
+          </div>
+        </section>
+
+        <section className="combat-support section-pad" aria-labelledby="combat-support-title">
+          <div className="combat-support__intro">
+            <p className="eyebrow">Part of a Combat Support Agency</p>
+            <h2 id="combat-support-title">Care is combat support.</h2>
+            <p>
+              The Defense Health Agency leads an integrated system of health
+              and readiness. Across that global network, clinical care,
+              education and training, logistics, research and information
+              systems work toward one purpose: generating and sustaining
+              warfighter readiness.
+            </p>
+            <a
+              className="combat-support__source"
+              href="https://dha.mil/About-DHA/Combat-Support-Agency"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the official DHA Combat Support Agency overview
+              <Arrow />
+            </a>
+          </div>
+
+          <div className="combat-support__lrmc">
+            <span className="combat-support__kicker">LRMC's forward role</span>
+            <p className="combat-support__lead">
+              At Landstuhl, that enterprise mission has a forward-stationed
+              presence—connecting operational need, medical capability and
+              compassionate care across regions and commands.
+            </p>
+            <div className="combat-support__grid">
+              <article>
+                <strong>Ready medical force</strong>
+                <p>Teams prepared to deliver skilled care when and where the mission demands.</p>
+              </article>
+              <article>
+                <strong>Medically ready force</strong>
+                <p>Care and expertise that help Service Members remain healthy, deployable and ready.</p>
+              </article>
+              <article>
+                <strong>Integrated support</strong>
+                <p>Joint, civilian, coalition and host-nation partnerships connected through a global system.</p>
+              </article>
+            </div>
           </div>
         </section>
 

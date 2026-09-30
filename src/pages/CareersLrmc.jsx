@@ -1,28 +1,13 @@
+import CareerWorkplace from '../components/CareerWorkplace.jsx'
+import SiteHeader from '../components/SiteHeader.jsx'
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 
 const Arrow = () => <span aria-hidden="true">↗</span>
 
-export default function CareersLrmc({ onHome, onPlan, onLife }) {
+export default function CareersLrmc({ onHome, onPlan, onLife, onDirectory, onArrival }) {
   return (
     <div className="careers-shell">
-      <header className="institutional-header careers-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy"><strong>LANDSTUHL</strong><span>Regional Medical Center</span></span>
-        </button>
-        <nav aria-label="Careers sections">
-          <a href="#career-paths">Career paths</a>
-          <a href="#federal-application">How to apply</a>
-          <a href="#career-life">Life at LRMC</a>
-        </nav>
-        <button className="institutional-tjo" onClick={onPlan}>I have a TJO <span aria-hidden="true">→</span></button>
-      </header>
-
-      <nav className="institutional-subnav" aria-label="Careers mobile sections">
-        <a href="#career-paths">Career paths</a>
-        <a href="#federal-application">How to apply</a>
-        <a href="#career-life">Life at LRMC</a>
-      </nav>
+      <SiteHeader sectionLabel="Careers" sections={[{ href: '#career-paths', label: 'Career paths' }, { href: '#federal-application', label: 'How to apply' }, { href: '#career-life', label: 'Life at LRMC' }, { href: '#work-culture', label: 'Working here' }, { href: '#first-days', label: 'Your first days' }]} />
 
       <main>
         <section className="careers-hero">
@@ -111,6 +96,8 @@ export default function CareersLrmc({ onHome, onPlan, onLife }) {
           <p>Move from tentative offer to final offer, relocation, arrival and your first 90 days with an LRMC-focused plan.</p>
           <button className="button button--light" onClick={onPlan}>Open the TJO pathway <span aria-hidden="true">→</span></button>
         </section>
+
+        <CareerWorkplace onPlan={onArrival} onDirectory={onDirectory} onLife={onLife} />
 
         <section className="institutional-sources careers-sources section-pad">
           <strong>Official application boundary</strong>

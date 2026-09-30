@@ -1,9 +1,9 @@
+import SiteHeader from './components/SiteHeader.jsx'
 import { useEffect, useState } from 'react'
 import SuggestUpdate from './pages/SuggestUpdate.jsx'
 import AboutLrmc from './pages/AboutLrmc.jsx'
 import CareersLrmc from './pages/CareersLrmc.jsx'
 import TjoLanding from './pages/TjoLanding.jsx'
-import WorkingLrmc from './pages/WorkingLrmc.jsx'
 
 const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 
@@ -1409,21 +1409,7 @@ function Directory({ onHome, onPlan, onLinks }) {
 
   return (
     <div className="companion-shell directory-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Offices, services & support</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onLinks}>Official links</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="directory-main">
         <section className="directory-hero">
@@ -1554,21 +1540,7 @@ function OfficialLinks({ onHome, onPlan, onDirectory }) {
 
   return (
     <div className="companion-shell links-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Verified starting points</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onDirectory}>Directory</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="links-main">
         <section className="links-hero">
@@ -1651,21 +1623,7 @@ function VehicleGuide({ onHome, onPlan, onDirectory }) {
 
   return (
     <div className="companion-shell vehicle-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Your vehicle in Germany</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onDirectory}>Directory</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="vehicle-main">
         <section className="vehicle-hero">
@@ -1866,18 +1824,7 @@ function HouseholdGoodsGuide({ onHome, onPlan, onLinks }) {
 
   return (
     <div className="companion-shell vehicle-shell household-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy"><strong>LANDSTUHL</strong><span>LRMC Companion</span></span>
-        </button>
-        <p>Household goods & baggage</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onLinks}>Official links</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="vehicle-main">
         <section className="vehicle-hero">
@@ -2019,18 +1966,7 @@ function AllowancesGuide({ onHome, onPlan, onLinks }) {
 
   return (
     <div className="companion-shell vehicle-shell allowances-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy"><strong>LANDSTUHL</strong><span>LRMC Companion</span></span>
-        </button>
-        <p>Civilian pay & allowances</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onLinks}>Official links</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="vehicle-main">
         <section className="allowances-hero">
@@ -2119,21 +2055,7 @@ function PetGuide({ onHome, onPlan, onDirectory }) {
 
   return (
     <div className="companion-shell pet-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Moving with pets</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onDirectory}>Directory</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="vehicle-main pet-main">
         <section className="vehicle-hero pet-hero">
@@ -2309,7 +2231,6 @@ function Companion({ onHome, onProfile, onDirectory, onLinks, onVehicle, onPets,
   const [activePhase, setActivePhase] = useState(
     () => relocationStageMap[relocationProfile.stage]?.phase || 'Offer & orders',
   )
-  const [menuOpen, setMenuOpen] = useState(false)
   const [completed, setCompleted] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('lrmc-plan-progress'))
@@ -2362,51 +2283,7 @@ function Companion({ onHome, onProfile, onDirectory, onLinks, onVehicle, onPets,
 
   return (
     <div className="companion-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Your LRMC arrival plan</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onHome}>Exit plan</button>
-          <button
-            className={`mobile-menu-toggle companion-menu-toggle ${menuOpen ? 'is-open' : ''}`}
-            onClick={() => setMenuOpen((current) => !current)}
-            aria-expanded={menuOpen}
-            aria-controls="companion-primary-menu"
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-        <nav className={`mobile-menu companion-menu ${menuOpen ? 'is-open' : ''}`} id="companion-primary-menu" aria-label="Plan navigation" aria-hidden={!menuOpen}>
-          <div className="mobile-menu-section">
-            <small>Practical guides</small>
-            <button onClick={() => { setMenuOpen(false); onVehicle() }}><strong>Your vehicle in Germany</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onPets() }}><strong>Moving with pets</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onHouseholdGoods() }}><strong>Household goods & baggage</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onAllowances() }}><strong>Pay & allowances</strong><span aria-hidden="true">→</span></button>
-          </div>
-          <div className="mobile-menu-section">
-            <small>Living here</small>
-            <button onClick={() => { setMenuOpen(false); onLife() }}><strong>Explore life in Germany</strong><span aria-hidden="true">→</span></button>
-          </div>
-          <div className="mobile-menu-section">
-            <small>Reference</small>
-            <button onClick={() => { setMenuOpen(false); onDirectory() }}><strong>Directory</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onLinks() }}><strong>Official links</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onSuggestUpdate() }}><strong>Suggest an update</strong><span aria-hidden="true">→</span></button>
-            <button onClick={() => { setMenuOpen(false); onInstall() }}><strong>Install the app</strong><span aria-hidden="true">↓</span></button>
-          </div>
-        </nav>
-      </header>
-      {menuOpen && <div className="mobile-menu-backdrop companion-menu-backdrop" onClick={() => setMenuOpen(false)} aria-hidden="true" />}
+      <SiteHeader />
 
       <main className="planner">
         <aside className="planner-sidebar">
@@ -2626,22 +2503,7 @@ function LifeInGermany({ onHome, onPlan, onDirectory, onLinks }) {
 
   return (
     <div className="companion-shell life-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Everyday life in your new community</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onDirectory}>Directory</button>
-          <button className="home-link" onClick={onLinks}>Official links</button>
-          <button className="home-link" onClick={onPlan}>My plan</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="life-main">
         <section className="life-hero">
@@ -2791,12 +2653,11 @@ function App() {
     if (window.location.hash === '#about-lrmc') return 'about-lrmc'
     if (window.location.hash === '#careers-lrmc') return 'careers-lrmc'
     if (window.location.hash === '#tjo') return 'tjo'
-    if (window.location.hash === '#working-lrmc') return 'working-lrmc'
+    if (['#working-lrmc', '#work-culture', '#first-days', '#readiness-at-work', '#work-resources', '#career-paths', '#federal-application', '#career-life', '#joining', '#careers'].includes(window.location.hash)) return 'careers-lrmc'
+    if (['#about', '#mission', '#history', '#leadership', '#identity', '#purpose', '#legacy', '#command'].includes(window.location.hash)) return 'about-lrmc'
     return 'home'
   }
   const [activeView, setActiveView] = useState(getViewFromHash)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [desktopMenu, setDesktopMenu] = useState(null)
   const [showCommunityNotice, setShowCommunityNotice] = useState(() => {
     try {
       return localStorage.getItem('lrmc-community-notice') !== 'accepted'
@@ -2816,10 +2677,25 @@ function App() {
   }
 
   useEffect(() => {
-    const handleHash = () => setActiveView(getViewFromHash())
+    const handleHash = () => {
+      const nextView = getViewFromHash()
+      const anchor = document.getElementById(window.location.hash.slice(1))
+      if (nextView !== 'home' || !anchor || window.location.hash === '#top') setActiveView(nextView)
+    }
     window.addEventListener('hashchange', handleHash)
     return () => window.removeEventListener('hashchange', handleHash)
   }, [])
+
+  useEffect(() => {
+    const aliases = { mission: 'purpose', history: 'legacy', leadership: 'command', about: 'identity', 'working-lrmc': 'work-culture', joining: 'first-days', careers: 'career-paths' }
+    const scrollToSection = () => {
+      const hash = window.location.hash.slice(1)
+      document.getElementById(aliases[hash] || hash)?.scrollIntoView()
+    }
+    const frame = requestAnimationFrame(scrollToSection)
+    window.addEventListener('hashchange', scrollToSection)
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('hashchange', scrollToSection) }
+  }, [activeView])
 
   useEffect(() => {
     if (!showCommunityNotice) return undefined
@@ -2830,16 +2706,6 @@ function App() {
     }
   }, [showCommunityNotice])
 
-  useEffect(() => {
-    const closeMenuOnEscape = (event) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false)
-        setDesktopMenu(null)
-      }
-    }
-    window.addEventListener('keydown', closeMenuOnEscape)
-    return () => window.removeEventListener('keydown', closeMenuOnEscape)
-  }, [])
 
   const startPlan = () => {
     window.location.hash = 'plan'
@@ -2847,8 +2713,8 @@ function App() {
   }
 
   const openTjo = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'tjo'
     setActiveView('tjo')
     window.scrollTo(0, 0)
@@ -2890,48 +2756,48 @@ function App() {
   }
 
   const openAllowances = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'allowances'
     setActiveView('allowances')
     window.scrollTo(0, 0)
   }
 
   const openSuggestUpdate = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'suggest-update'
     setActiveView('suggest-update')
     window.scrollTo(0, 0)
   }
 
   const openAboutLrmc = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'about-lrmc'
     setActiveView('about-lrmc')
     window.scrollTo(0, 0)
   }
 
   const openCareersLrmc = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'careers-lrmc'
     setActiveView('careers-lrmc')
     window.scrollTo(0, 0)
   }
 
   const openWorkingLrmc = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.location.hash = 'working-lrmc'
     setActiveView('working-lrmc')
     window.scrollTo(0, 0)
   }
 
   const openInstall = () => {
-    setMenuOpen(false)
-    setDesktopMenu(null)
+
+
     window.dispatchEvent(new Event('open-pwa-install'))
   }
 
@@ -2984,213 +2850,16 @@ function App() {
 
 
   if (activeView === 'careers-lrmc') {
-    return <><CareersLrmc onHome={returnHome} onPlan={openTjo} onLife={openLife} /><InstallPwa /></>
+    return <><CareersLrmc onHome={returnHome} onPlan={openTjo} onLife={openLife} onDirectory={openDirectory} onArrival={startPlan} /><InstallPwa /></>
   }
 
   if (activeView === 'tjo') {
     return <><TjoLanding onHome={returnHome} onBuildPlan={startPlan} /><InstallPwa /></>
   }
 
-  if (activeView === 'working-lrmc') {
-    return <><WorkingLrmc onHome={returnHome} onPlan={startPlan} onDirectory={openDirectory} onLife={openLife} /><InstallPwa /></>
-  }
-
   return (
     <div className="site-shell">
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Landstuhl Regional Medical Center home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>Regional Medical Center</span>
-          </span>
-        </a>
-
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <button onClick={openAboutLrmc}>About LRMC</button>
-          <div
-            className={`desktop-nav-group ${desktopMenu === 'guides' ? 'is-open' : ''}`}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setDesktopMenu(null)
-            }}
-          >
-            <button
-              className="desktop-nav-toggle"
-              onClick={() => setDesktopMenu((current) => current === 'guides' ? null : 'guides')}
-              aria-expanded={desktopMenu === 'guides'}
-              aria-haspopup="menu"
-            >
-              Our mission <span aria-hidden="true">⌄</span>
-            </button>
-            <div className="desktop-nav-dropdown" role="menu" aria-label="Mission and identity">
-              <small>Mission and identity</small>
-              <a href="#mission" onClick={() => setDesktopMenu(null)} role="menuitem">
-                <strong>Why we exist</strong>
-                <span>Readiness, care and the Joint Warfighter</span>
-              </a>
-              <a href="#history" onClick={() => setDesktopMenu(null)} role="menuitem">
-                <strong>History & legacy</strong>
-                <span>More than 70 years of selfless service</span>
-              </a>
-              <a href="#leadership" onClick={() => setDesktopMenu(null)} role="menuitem">
-                <strong>Leadership</strong>
-                <span>Command team and command philosophy</span>
-              </a>
-            </div>
-          </div>
-          <button onClick={openCareersLrmc}>Careers</button>
-          <button onClick={openWorkingLrmc}>Working at LRMC</button>
-          <a href="#joining">Joining LRMC</a>
-          <div
-            className={`desktop-nav-group ${desktopMenu === 'resources' ? 'is-open' : ''}`}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setDesktopMenu(null)
-            }}
-          >
-            <button
-              className="desktop-nav-toggle"
-              onClick={() => setDesktopMenu((current) => current === 'resources' ? null : 'resources')}
-              aria-expanded={desktopMenu === 'resources'}
-              aria-haspopup="menu"
-            >
-              Resources <span aria-hidden="true">⌄</span>
-            </button>
-            <div className="desktop-nav-dropdown" role="menu" aria-label="Reference resources">
-              <small>Reference</small>
-              <button onClick={() => { setDesktopMenu(null); openDirectory() }} role="menuitem">
-                <strong>Directory</strong>
-                <span>Offices, numbers and services</span>
-              </button>
-              <button onClick={() => { setDesktopMenu(null); openLinks() }} role="menuitem">
-                <strong>Official links</strong>
-                <span>Forms and verified starting points</span>
-              </button>
-              <button onClick={openSuggestUpdate} role="menuitem">
-                <strong>Suggest an update</strong>
-                <span>Send a correction for review</span>
-              </button>
-              <button onClick={() => { setDesktopMenu(null); openLife() }} role="menuitem">
-                <strong>Life in Germany</strong>
-                <span>Local area, culture and everyday systems</span>
-              </button>
-              <button onClick={openInstall} role="menuitem">
-                <strong>Install the app</strong>
-                <span>Add the companion to your device</span>
-              </button>
-            </div>
-          </div>
-        </nav>
-
-        <div className="header-actions">
-          <button className="header-action" onClick={openTjo} aria-label="Open the LRMC TJO pathway">
-            I have a TJO
-            <span aria-hidden="true">→</span>
-          </button>
-          <button
-            className={`mobile-menu-toggle ${menuOpen ? 'is-open' : ''}`}
-            onClick={() => setMenuOpen((current) => !current)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-primary-menu"
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        <nav
-          className={`mobile-menu ${menuOpen ? 'is-open' : ''}`}
-          id="mobile-primary-menu"
-          aria-label="Mobile navigation"
-          aria-hidden={!menuOpen}
-        >
-          <div className="mobile-menu-section">
-            <small>Start here</small>
-            <button onClick={openTjo}>
-              <strong>I received a TJO</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <a href="#joining" onClick={() => setMenuOpen(false)}>
-              <strong>Joining LRMC</strong>
-              <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-          <div className="mobile-menu-section">
-            <small>About LRMC</small>
-            <button onClick={openAboutLrmc}>
-              <strong>Who we are</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <a href="#mission" onClick={() => setMenuOpen(false)}>
-              <strong>Mission & why we exist</strong>
-              <span aria-hidden="true">↓</span>
-            </a>
-            <a href="#leadership" onClick={() => setMenuOpen(false)}>
-              <strong>Leadership</strong>
-              <span aria-hidden="true">↓</span>
-            </a>
-            <button onClick={openCareersLrmc}>
-              <strong>Careers</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={openWorkingLrmc}>
-              <strong>Working at LRMC</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-          <div className="mobile-menu-section">
-            <small>Relocation guides</small>
-            <button onClick={() => { setMenuOpen(false); openVehicle() }}>
-              <strong>Your vehicle in Germany</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={() => { setMenuOpen(false); openPets() }}>
-              <strong>Moving with pets</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={() => { setMenuOpen(false); openHouseholdGoods() }}>
-              <strong>Household goods & baggage</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={openAllowances}>
-              <strong>Pay & allowances</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-          <div className="mobile-menu-section">
-            <small>Living here</small>
-            <button onClick={() => { setMenuOpen(false); openLife() }}>
-              <strong>Life in Germany</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-          <div className="mobile-menu-section">
-            <small>Reference</small>
-            <button onClick={() => { setMenuOpen(false); openDirectory() }}>
-              <strong>Directory</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={() => { setMenuOpen(false); openLinks() }}>
-              <strong>Official links</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <button onClick={openSuggestUpdate}>
-              <strong>Suggest an update</strong>
-              <span aria-hidden="true">→</span>
-            </button>
-            <a href="#about" onClick={() => setMenuOpen(false)}>
-              <strong>About this guide</strong>
-              <span aria-hidden="true">↓</span>
-            </a>
-            <button onClick={openInstall}>
-              <strong>Install the app</strong>
-              <span aria-hidden="true">↓</span>
-            </button>
-          </div>
-        </nav>
-      </header>
-      {menuOpen && <div className="mobile-menu-backdrop" onClick={() => setMenuOpen(false)} aria-hidden="true" />}
+      <SiteHeader />
 
       {showCommunityNotice && (
         <div className="community-modal-backdrop">
@@ -3236,7 +2905,7 @@ function App() {
               stand beside them.
             </p>
             <div className="hero-actions">
-              <a className="button button--primary" href="#about">
+              <a className="button button--primary" href="#about-lrmc">
                 Explore LRMC
                 <span aria-hidden="true">→</span>
               </a>
@@ -3254,210 +2923,19 @@ function App() {
 
         </section>
 
-        <section className="mission-band section-pad" id="mission">
-          <div className="mission-band__statement">
-            <p className="eyebrow">Why we exist</p>
-            <h2>Military medicine positioned for the moment it matters.</h2>
-            <p>LRMC connects operational readiness with safe, compassionate care—supporting Service Members, resilient families and partners across Europe, the Middle East and Africa.</p>
-          </div>
-          <div className="mission-pillars" aria-label="LRMC mission pillars">
-            <article><span>01</span><strong>Readiness</strong><p>A ready medical force sustaining a medically ready force.</p></article>
-            <article><span>02</span><strong>Care</strong><p>High-quality, safe and compassionate care across the continuum.</p></article>
-            <article><span>03</span><strong>Partnership</strong><p>Joint, coalition and host-nation relationships built for trust.</p></article>
-          </div>
-        </section>
-
-        <section className="combat-support section-pad" aria-labelledby="combat-support-title">
-          <div className="combat-support__intro">
-            <p className="eyebrow">Part of a Combat Support Agency</p>
-            <h2 id="combat-support-title">Care is combat support.</h2>
-            <p>
-              The Defense Health Agency leads an integrated system of health
-              and readiness. Across that global network, clinical care,
-              education and training, logistics, research and information
-              systems work toward one purpose: generating and sustaining
-              warfighter readiness.
-            </p>
-            <a
-              className="combat-support__source"
-              href="https://dha.mil/About-DHA/Combat-Support-Agency"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Read the official DHA Combat Support Agency overview
-              <ArrowIcon />
-            </a>
-          </div>
-
-          <div className="combat-support__lrmc">
-            <span className="combat-support__kicker">LRMC's forward role</span>
-            <p className="combat-support__lead">
-              At Landstuhl, that enterprise mission has a forward-stationed
-              presence—connecting operational need, medical capability and
-              compassionate care across regions and commands.
-            </p>
-            <div className="combat-support__grid">
-              <article>
-                <strong>Ready medical force</strong>
-                <p>Teams prepared to deliver skilled care when and where the mission demands.</p>
-              </article>
-              <article>
-                <strong>Medically ready force</strong>
-                <p>Care and expertise that help Service Members remain healthy, deployable and ready.</p>
-              </article>
-              <article>
-                <strong>Integrated support</strong>
-                <p>Joint, civilian, coalition and host-nation partnerships connected through a global system.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="journey section-pad" id="joining">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Joining LRMC</p>
-              <h2>Your next mission starts with a clear path.</h2>
-            </div>
-            <p>
-              From a tentative offer through arrival and your first 90 days,
-              the LRMC companion turns an overseas transition into focused,
-              manageable actions.
-            </p>
-          </div>
-
-          <ol className="journey-track">
-            {journeyStages.map(([number, title, copy], index) => (
-              <li key={title} className={index === 0 ? 'is-active' : ''}>
-                <span className="stage-number">{number}</span>
-                <div>
-                  <strong>{title}</strong>
-                  <p>{copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <button className="journey-prompt" onClick={openTjo}>
-            <span className="journey-prompt__number">01</span>
-            <span>
-              <small>Start here</small>
-              <strong>I received a Tentative Job Offer—show me what comes next</strong>
-            </span>
-            <span className="journey-prompt__arrow" aria-hidden="true">
-              →
-            </span>
-          </button>
-        </section>
-
-        <section className="explore section-pad" id="about">
-          <div className="section-heading section-heading--center">
-            <div>
-              <p className="eyebrow">Who we are</p>
-              <h2>One medical center. A global responsibility.</h2>
-            </div>
-            <p>
-              Explore the mission, legacy and people behind the only
-              forward-stationed U.S. medical center of its kind.
-            </p>
-          </div>
-
-          <div className="section-heading-action">
-            <button className="button button--secondary" onClick={openAboutLrmc}>Explore About LRMC <span aria-hidden="true">→</span></button>
-          </div>
-
-          <div className="path-grid">
-            <article className="path-card path-card--mission" id="history">
-              <p className="path-card__eyebrow">History & legacy</p>
-              <h3>70+ years of selfless service</h3>
-              <p>Trace LRMC's evolution as a decisive medical link between the point of need and care closer to home.</p>
-              <a href="https://landstuhl.tricare.mil/About-Us/70-Years-of-Selfless-Service" target="_blank" rel="noreferrer">Explore the official history <ArrowIcon /></a>
-            </article>
-            <article className="path-card path-card--readiness">
-              <p className="path-card__eyebrow">Mission & vision</p>
-              <h3>Excellence through teamwork</h3>
-              <p>See how readiness, selfless service, quality and compassion shape LRMC's purpose.</p>
-              <a href="https://landstuhl.tricare.mil/About-Us/Mission-and-Vision" target="_blank" rel="noreferrer">Read the official mission <ArrowIcon /></a>
-            </article>
-            <article className="path-card path-card--people" id="leadership">
-              <p className="path-card__eyebrow">Command team</p>
-              <h3>Leadership with purpose</h3>
-              <p>Meet the command team and the philosophy guiding the LRMC workforce and mission.</p>
-              <a href="https://landstuhl.tricare.mil/About-Us/Leadership" target="_blank" rel="noreferrer">Meet LRMC leadership <ArrowIcon /></a>
-            </article>
-          </div>
-        </section>
-
-        <section className="welcome careers-section section-pad" id="careers">
-          <div className="welcome-image">
-            <img
-              src={assetUrl('/images/commander-stewart.jpg')}
-              alt="LRMC military medical leadership"
-            />
-          </div>
-          <div className="welcome-copy">
-            <p className="eyebrow">Careers at LRMC</p>
-            <h2>Bring your skill to a mission with global reach.</h2>
-            <p className="welcome-intro">
-              Serve alongside military, federal civilian, local-national and
-              partner professionals where clinical excellence and operational
-              readiness meet.
-            </p>
-
-            <div className="about-principles">
-              <article>
-                <span>01</span>
-                <strong>Meaningful mission</strong>
-                <p>Support joint warfighters, families and a far-reaching beneficiary community.</p>
-              </article>
-              <article>
-                <span>02</span>
-                <strong>Distinctive practice</strong>
-                <p>Work where trauma capability, specialty care and readiness intersect.</p>
-              </article>
-              <article>
-                <span>03</span>
-                <strong>Life in Europe</strong>
-                <p>Build a career and community in the heart of Rheinland-Pfalz.</p>
-              </article>
-            </div>
-
-            <div className="about-actions">
-              <button className="about-contact-card" onClick={openCareersLrmc}>
-                <span>Explore the mission</span>
-                <strong>Careers at LRMC</strong>
-                <small>Paths, preparation and official routes</small>
-                <span className="about-contact-arrow" aria-hidden="true">→</span>
-              </button>
-              <button className="about-contact-card" onClick={openWorkingLrmc}>
-                <span>Already part of the team?</span>
-                <strong>Working at LRMC</strong>
-                <small>Orientation, readiness and first days</small>
-                <span className="about-contact-arrow" aria-hidden="true">→</span>
-              </button>
-              <a className="about-contact-card" href="https://www.usajobs.gov/Search/Results?l=Landstuhl%2C%20Germany" target="_blank" rel="noreferrer">
-                <span>Federal opportunities</span>
-                <strong>Search USAJOBS</strong>
-                <small>Official application source</small>
-                <span className="about-contact-arrow" aria-hidden="true">↗</span>
-              </a>
-              <button className="about-contact-card about-contact-card--coffee" onClick={openTjo}>
-                <span>Already selected?</span>
-                <strong>I received a TJO</strong>
-                <small>Begin the onboarding path</small>
-                <span className="about-contact-arrow" aria-hidden="true">→</span>
-              </button>
-            </div>
-            <div className="public-edition-notice">
-              <strong>Unofficial Public Edition</strong>
-              <span>
-                This guide is unaffiliated with any government agency, base,
-                installation, unit, organization, or employer. Confirm official
-                requirements, eligibility, deadlines, and benefits with your
-                authorized HR, relocation, or servicing office.
-              </span>
-            </div>
-          </div>
+        <section className="home-destinations section-pad" aria-label="Explore LRMC">
+          <article>
+            <p className="eyebrow">About LRMC / Our Mission</p>
+            <h2>Understand the place and its purpose.</h2>
+            <p>Explore LRMC’s mission, its role within DHA, the history of the medical center and its leadership.</p>
+            <button className="button button--secondary" onClick={openAboutLrmc}>About LRMC & Our Mission <span aria-hidden="true">→</span></button>
+          </article>
+          <article>
+            <p className="eyebrow">Careers</p>
+            <h2>Build your future at LRMC.</h2>
+            <p>Find your career path, understand how to apply and learn what to expect when joining the team.</p>
+            <button className="button button--secondary" onClick={openCareersLrmc}>Explore careers <span aria-hidden="true">→</span></button>
+          </article>
         </section>
 
         <section className="closing section-pad">
@@ -3488,20 +2966,11 @@ function App() {
         </a>
         <p>Military medicine. Mission readiness. Human care.</p>
         <div className="footer-links">
-          <button onClick={openAboutLrmc}>About LRMC</button>
-          <a href="#mission">Our mission</a>
-          <a href="#leadership">Leadership</a>
+          <button onClick={openAboutLrmc}>About LRMC & Our Mission</button>
           <button onClick={openCareersLrmc}>Careers</button>
-          <button onClick={openWorkingLrmc}>Working at LRMC</button>
-          <button onClick={openLife}>Life in Germany</button>
-          <button onClick={openVehicle}>Vehicle</button>
-          <button onClick={openPets}>Pets</button>
-          <button onClick={openAllowances}>Pay & allowances</button>
-          <button onClick={openDirectory}>Directory</button>
+          <button onClick={openDirectory}>Services & Offices</button>
           <button onClick={openSuggestUpdate}>Suggest an update</button>
-          <a href="#top">Accessibility</a>
-          <a href="#top">Privacy</a>
-          <button onClick={() => setShowCommunityNotice(true)}>Edition disclaimer</button>
+          <button onClick={() => setShowCommunityNotice(true)}>About this guide</button>
         </div>
       </footer>
     </div>

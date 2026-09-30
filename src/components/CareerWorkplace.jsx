@@ -1,36 +1,11 @@
-import SiteHeader from '../components/SiteHeader.jsx'
 const Arrow = () => <span aria-hidden="true">↗</span>
-const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
-
-export default function WorkingLrmc({ onHome, onPlan, onDirectory, onLife }) {
-  return (
-    <div className="work-shell">
-      <SiteHeader />
-
-      <nav className="institutional-subnav" aria-label="Working at LRMC mobile sections">
-        <a href="#work-culture">The mission</a>
-        <a href="#first-days">Your first days</a>
-        <a href="#readiness-at-work">Readiness</a>
-        <a href="#work-resources">Resources</a>
-      </nav>
-
-      <main>
-        <section className="work-hero" id="work-culture">
-          <div className="work-hero__copy">
-            <p className="eyebrow">Working at LRMC</p>
-            <h1>Your work begins<br /><span>with the mission.</span></h1>
-            <p>Selfless service is the center of gravity: a shared commitment to the patient, the team and readiness before the moment arrives.</p>
-            <div>
-              <button className="button button--primary" onClick={onPlan}>Open my LRMC plan <span aria-hidden="true">→</span></button>
-              <a href="https://landstuhl.tricare.mil/About-Us/Hospital-Education-and-Training-Division" target="_blank" rel="noreferrer">Education & training <Arrow /></a>
-            </div>
-          </div>
-          <figure className="work-hero__image">
-            <img src={assetUrl('/pictures/2512349863-ds.png')} alt="Service members working together in an operational environment" />
-            <figcaption><span>Selfless service</span><strong>Care for the force. Readiness for the mission.</strong></figcaption>
-          </figure>
-        </section>
-
+export default function CareerWorkplace({ onPlan, onDirectory, onLife }) {
+  return <>
+    <section className="section-pad career-work-intro" id="work-culture">
+      <p className="eyebrow">Working at LRMC</p>
+      <h2>Find your place on the team.</h2>
+      <p>Explore the workplace, prepare for your first days and keep your professional development moving.</p>
+    </section>
         <section className="work-principles" aria-label="LRMC workplace principles">
           <article><span>01</span><div><strong>Teamwork</strong><p>Joint, civilian, local-national and partner expertise aligned around the mission.</p></div></article>
           <article><span>02</span><div><strong>Readiness</strong><p>Knowledge, repetition and clinical proficiency developed before they are needed.</p></div></article>
@@ -97,7 +72,5 @@ export default function WorkingLrmc({ onHome, onPlan, onDirectory, onLife }) {
           <strong>Unofficial workforce companion</strong>
           <p>Reporting instructions, access, credentials, training and unit requirements change and depend on your role. Follow current direction from your supervisor, sponsor, HR office, service component and authorized LRMC offices.</p>
         </section>
-      </main>
-    </div>
-  )
+  </>
 }

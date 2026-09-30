@@ -1,22 +1,10 @@
+import SiteHeader from '../components/SiteHeader.jsx'
 import UpdateSuggestionForm from '../components/UpdateSuggestionForm.jsx'
 
 export default function SuggestUpdate({ onHome, onDirectory }) {
   return (
     <div className="companion-shell suggestion-shell">
-      <header className="companion-header">
-        <button className="brand brand-button" onClick={onHome} aria-label="Return to LRMC Companion home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy">
-            <strong>LANDSTUHL</strong>
-            <span>LRMC Companion</span>
-          </span>
-        </button>
-        <p>Contributor portal</p>
-        <div className="companion-nav-actions">
-          <button className="home-link" onClick={onDirectory}>Directory</button>
-          <button className="home-link" onClick={onHome}>Exit</button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="suggestion-main">
         <section className="suggestion-hero">
