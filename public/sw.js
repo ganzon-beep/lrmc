@@ -1,4 +1,5 @@
-const CACHE_NAME = 'lrmc-mission-site-v1'
+const CACHE_PREFIX = `lrmc-${self.registration.scope}-`
+const CACHE_NAME = `${CACHE_PREFIX}v2`
 const APP_SHELL = [
   './',
   './index.html',
@@ -31,7 +32,7 @@ self.addEventListener('activate', (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key !== CACHE_NAME)
+            .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
             .map((key) => caches.delete(key)),
         ),
       )
@@ -45,7 +46,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
 
   const requestUrl = new URL(request.url)
-  if (requestUrl.origin !== self.location.origin) return
+  if (requestUrl.origin !== self.location.origin || !requestUrl.href.startsWith(self.registration.scope)) return
 
   if (request.mode === 'navigate') {
     event.respondWith(

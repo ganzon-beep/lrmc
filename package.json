@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/prepare-sites.mjs",
-    "build:pages": "VITE_BASE=/ vite build",
+    "build:pages": "VITE_BASE=/lrmc/ vite build",
     "preview": "vite preview"
   },
   "dependencies": {
