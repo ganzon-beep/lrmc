@@ -2660,8 +2660,7 @@ function App() {
   const [activeView, setActiveView] = useState(getViewFromHash)
   const [showCommunityNotice, setShowCommunityNotice] = useState(() => {
     try {
-      return localStorage.getItem('lrmc-community-notice') !== 'accepted'
-        && localStorage.getItem('germany-pcs-community-notice') !== 'accepted'
+      return localStorage.getItem('lrmc-concept-preview-v1') !== 'viewed'
     } catch {
       return true
     }
@@ -2669,7 +2668,7 @@ function App() {
 
   const acceptCommunityNotice = () => {
     try {
-      localStorage.setItem('lrmc-community-notice', 'accepted')
+      localStorage.setItem('lrmc-concept-preview-v1', 'viewed')
     } catch {
       // Keep the acknowledgment usable when browser storage is unavailable.
     }
@@ -2871,14 +2870,14 @@ function App() {
             aria-describedby="community-modal-description"
           >
             <div className="community-modal-mark" aria-hidden="true">i</div>
-            <p className="eyebrow">Before you continue</p>
-            <h2 id="community-modal-title">Open community resource</h2>
+            <p className="eyebrow">Concept preview</p>
+            <h2 id="community-modal-title">A possible next step for LRMC.</h2>
             <div id="community-modal-description" className="community-modal-copy">
-              <p>This companion is unofficial and maintained for the community. It is not affiliated with or endorsed by any government agency, base, installation, unit, organization, or employer.</p>
-              <p>Information here is general guidance, not official direction. Requirements, eligibility, deadlines, benefits, and case-specific decisions must be confirmed with your servicing Civilian Personnel Advisory Center (CPAC), authorized HR or relocation office, or the responsible government agency.</p>
+              <p>This interactive mockup explores what an external onboarding experience for LRMC could look like—from discovering career opportunities to preparing for arrival and settling in.</p>
+              <p>Created for discussion and feedback, this is a demonstration with illustrative content and placeholders. It is not an official LRMC service or an approved onboarding process. Content and features would be reviewed and refined before any operational use.</p>
             </div>
             <button className="button button--primary community-modal-accept" onClick={acceptCommunityNotice} autoFocus>
-              I understand — continue
+              Explore the mockup
               <span aria-hidden="true">→</span>
             </button>
           </section>
@@ -2915,7 +2914,7 @@ function App() {
               </button>
             </div>
             <p className="privacy-note">
-              <span>Unofficial public edition</span>
+              <span>Concept preview · For discussion</span>
               <span className="privacy-note__dot" aria-hidden="true">•</span>
               <span>Official sources clearly identified</span>
             </p>
@@ -2970,7 +2969,7 @@ function App() {
           <button onClick={openCareersLrmc}>Careers</button>
           <button onClick={openDirectory}>Services & Offices</button>
           <button onClick={openSuggestUpdate}>Suggest an update</button>
-          <button onClick={() => setShowCommunityNotice(true)}>About this guide</button>
+          <button onClick={() => setShowCommunityNotice(true)}>About this mockup</button>
         </div>
       </footer>
     </div>
